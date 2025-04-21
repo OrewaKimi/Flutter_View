@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'card_view.dart';
 
 class TabHost extends StatelessWidget {
   const TabHost({super.key});
@@ -7,52 +6,30 @@ class TabHost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
-      child: Column(
-        children: [
-          const TabBar(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          backgroundColor: Colors.deepPurple[500],
+          title: const Text('TabHost Demo'),
+          bottom: const TabBar(
             labelColor: Colors.white,
+            unselectedLabelColor: Colors.white70,
             indicatorColor: Colors.white,
             tabs: [
-              Tab(icon: Icon(Icons.home), text: 'Komponen'),
-              Tab(icon: Icon(Icons.info), text: 'Tentang'),
+              Tab(icon: Icon(Icons.star), text: 'Favorit'),
+              Tab(icon: Icon(Icons.music_note), text: 'Musik'),
+              Tab(icon: Icon(Icons.settings), text: 'Setting'),
             ],
           ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: const [
-                    ComponentCard(
-                      title: 'SearchView',
-                      description: 'Komponen untuk pencarian cepat dengan tampilan modern.',
-                    ),
-                    ComponentCard(
-                      title: 'NestedScrollView',
-                      description: 'View scrollable yang memungkinkan header mengambang dan body bisa discroll.',
-                    ),
-                    ComponentCard(
-                      title: 'CardView',
-                      description: 'Komponen kartu untuk menampilkan informasi dengan latar menarik.',
-                    ),
-                    ComponentCard(
-                      title: 'Tabhost',
-                      description: 'Navigasi tab untuk berpindah antar konten dalam satu halaman.',
-                    ),
-                  ],
-                ),
-                Center(
-                  child: Text(
-                    'Aplikasi demo komponen Flutter dengan gaya Gen Z ✨',
-                    style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        ),
+        body: const TabBarView(
+          children: [
+            Center(child: Text('Favorit kamu 🎉', style: TextStyle(color: Colors.black87, fontSize: 20))),
+            Center(child: Text('Playlist Gen Z 🔥', style: TextStyle(color: Colors.black87, fontSize: 20))),
+            Center(child: Text('Pengaturan ⚙️', style: TextStyle(color: Colors.black87, fontSize: 20))),
+          ],
+        ),
       ),
     );
   }
