@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:view/components/search_view.dart';
+import 'package:view/components/tab_host.dart';
 
 class NestedScrollViewWidget extends StatelessWidget {
   const NestedScrollViewWidget({super.key});
